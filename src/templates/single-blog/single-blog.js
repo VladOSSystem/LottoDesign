@@ -1,61 +1,32 @@
-import React, { useState } from 'react'
-import { graphql, Link } from 'gatsby'
+import React from 'react'
+import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
 import SEO from "../../components/seo"
 import Layout from "../../containers/layout/layout"
 import Header from '../../containers/layout/header'
 import Footer from '../../containers/layout/footer'
-import BlogMeta, { CommentNumber, Category, Tags } from '../../components/blog/blog-meta'
-import { Thumbnail, Video, Quote, Linked, Gallery } from '../../components/blog/blog-media'
-import ModalVideo from '../../components/shared/modal-video'
-import { slugify } from '../../utils/utilFunctions'
+import { Thumbnail } from '../../components/blog/blog-media'
+
 import SearchWidget from '../../containers/widgets/search'
 import RecentPostWidget from '../../containers/widgets/recent-post'
-import InstagramWidget from '../../containers/widgets/instagram'
-import CategoryWidget from '../../containers/widgets/categories'
-import AuthorWidget from '../../containers/widgets/author'
 import CTAWidget from '../../containers/widgets/cta'
-import SubscribeWidget from '../../containers/widgets/subscribe'
-import InstagramArea from '../../containers/global/instagram'
 import Comment from '../../containers/global/comment'
-import RelatedPosts from '../../containers/global/related-posts'
-import SocialShare from '../../components/socials/social-share'
 import InstagramWrap from '../../containers/global/instagram'
 import {
     SinglePostArea,
     SinglePostWrap,
     PostMedia,
-    PostHeader,
-    PostTitle,
-    PostMeta,
-    PostFooter,
-    PostShare,
-    PostTags,
+   
     SidebarWrap
 } from './single-blog.stc'
 
 const SingleBlog = ({ data, pageContext, location, ...restProps }) => {
     const { slug } = data.wordpressPost;
     const {
-        date, format, title, image,
-        video_link, quote_text, quote_author,
-        link, images, tags, featured_media, content
+        title, 
+        featured_media,
+         content
     } = data.wordpressPost;
-    const { html } = data.wordpressPost;
-    let video_arr, video_id, video_channel;
-    if (video_link) {
-        video_arr = video_link.split('=', -1);
-        video_id = video_arr[1];
-        video_channel = video_link.split(".")[1];
-    }
-    const [videoOpen, setVideoOpen] = useState(false);
-    const modalVideoOpen = () => {
-        setVideoOpen(true)
-    }
-    const modalVideoClose = () => {
-        setVideoOpen(false)
-    }
-
     return (
         <Layout>
             <SEO title={title} />

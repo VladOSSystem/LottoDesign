@@ -7,17 +7,6 @@ import {ContactBannerWrap} from './banner-area.stc'
 const BannerArea = () => {
     const contactBannerData = useStaticQuery(graphql `
         query ContactBannerQuery {
-            contactJson(id: {eq: "contact-page-banner"}) {
-                banner {
-                    childImageSharp {
-                        fluid(maxWidth: 1260, maxHeight: 585, quality: 100, srcSetBreakpoints: 6) {
-                            ...GatsbyImageSharpFluid_withWebp
-                            presentationWidth
-                            presentationHeight
-                        }
-                    }
-                }
-            }
             wordpressPage(slug: {eq: "contact-us"}) {
                 slug
                 title
@@ -37,8 +26,6 @@ const BannerArea = () => {
               }
         }      
     `);
-    const bannerImg = contactBannerData.contactJson.banner.childImageSharp.fluid;
-    console.log(contactBannerData.wordpressPage.featured_media.localFile.childImageSharp.fluid)
     return (
         <ContactBannerWrap>
             <Container>

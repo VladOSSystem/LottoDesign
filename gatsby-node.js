@@ -111,7 +111,6 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
     // Create Single Blog Page
-      console.log(result)
     const posts = result.data.allWordpressPost.edges;
     posts.forEach(({ node }) => {
         createPage({

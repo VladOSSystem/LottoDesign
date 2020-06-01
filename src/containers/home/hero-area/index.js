@@ -9,17 +9,6 @@ import {HeroWrapper, HeroBG, HeroTextBox} from './hero-area.stc'
 const HeroArea = (props) => {
     const heroData = useStaticQuery(graphql `
         query HomeHeroQuery {
-            homeJson(id: {eq: "home-hero-content"}){
-                title
-                desc
-                image {
-                    childImageSharp {
-                        fluid(maxWidth: 1920, maxHeight: 750, quality: 100) {
-                            ...GatsbyImageSharpFluid_withWebp
-                        }
-                    }
-                }
-            }
             wordpressPage(path: {eq: "/"}) {
                 id
                 title
@@ -41,7 +30,6 @@ const HeroArea = (props) => {
         }      
     `) 
     // console.log(heroData)
-    const {title, desc, image} = heroData.homeJson;
     const {headingStyle, textStyle, textHeadingStyle} = props;
     return (
         <HeroWrapper>
@@ -50,10 +38,10 @@ const HeroArea = (props) => {
                 <Row>
                     <Col lg={6}>
                         <HeroTextBox>
-                            {title && <Heading {...textHeadingStyle} {...headingStyle}>{heroData.wordpressPage.title}</Heading>}
-                            {desc && <Text {...textHeadingStyle} {...textStyle}>Блог о лотореях</Text>}
+                            {heroData.wordpressPage.title && <Heading {...textHeadingStyle} {...headingStyle}>{heroData.wordpressPage.title}</Heading>}
+                            <Text {...textHeadingStyle} {...textStyle}>Блог о лотореях</Text>
                         </HeroTextBox>
-                    </Col>
+                    </Col> 
                 </Row>
             </Container>
         </HeroWrapper>

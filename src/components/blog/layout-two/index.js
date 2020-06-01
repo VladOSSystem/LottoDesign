@@ -22,8 +22,8 @@ import {
 const Blog = ({content, ...restProps}) => {
     const excerpt = content.excerpt
     const {
-        slug, dateSlug, category, date, format, title, image, 
-         postID, video_link, quote_text, quote_author,
+        slug, category, date, format, title, image, 
+        video_link, quote_text, quote_author,
         link, images, featured_media
     } = content;
     const {btnStyle, categoryStyle, ...restStyles} = restProps;

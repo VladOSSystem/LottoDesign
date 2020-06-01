@@ -5,7 +5,6 @@ import Logo from '../../../components/logo'
 import {MainMenu, MobileMenu}  from '../../../components/menu'
 import Hamburger from '../../../components/shared/hamburger'
 import Social from '../../../components/socials/layout-one'
-import AuthorOffcanvas from '../../global/author-offcanvas'
 import OffCanvas, {OffCanvasHeader, OffCanvasBody} from '../../../components/shared/off-canvas'
 import {
     HeaderWrap, 
@@ -21,14 +20,6 @@ import {
 const Header = (props) => {
     const HeaderData = useStaticQuery(graphql `
         query HeaderDataQuery {
-            allMenuJson {
-                edges {
-                    node {
-                        title
-                        path
-                    }
-                }
-            }
             site {
                 siteMetadata {
                     contact {
@@ -63,12 +54,10 @@ const Header = (props) => {
         }   
            
     `)
-    const menu = HeaderData.allWordpressMenusMenusItems.edges;
     const {social} = HeaderData.site.siteMetadata.contact;
     const [fixedHeaderHeight, setFixedHeaderHeight] = useState(0);
     const [totalHeaderHeight, setTotalHeaderHeight] = useState(0);
     const [sticky, setSticky] = useState(false);
-    const [authorOffcanvas, setAuthorOffcanvas] = useState(false)
     const [offcanvasMenu, setOffcanvasMenu] = useState(false)
     const headerRef = useRef(null);
     const fixedRef = useRef(null);
@@ -94,15 +83,13 @@ const Header = (props) => {
         }
     }, [sticky, fixedHeaderHeight, totalHeaderHeight]);
     
-    const authorOffcanvasHandler = () => {
-        setAuthorOffcanvas(prev => !prev)
-    }
+   
 
     const offcanvasMenuHandler = () => {
         setOffcanvasMenu(prev => !prev)
     }
 
-    const {hamburgerElStyle, logoElStyle, hideInMobile, hideInPc, transparent} = props;
+    const { logoElStyle, hideInMobile, hideInPc, transparent} = props;
     return (
         <Fragment>
             <HeaderWrap transparent={transparent} ref={headerRef}>
@@ -132,7 +119,6 @@ const Header = (props) => {
                     <FixedHeaderHeight height={fixedHeaderHeight}/>
                 </HeaderOuter>
             </HeaderWrap>
-            <AuthorOffcanvas isOpen={authorOffcanvas} onClick={authorOffcanvasHandler}/>
             <OffCanvas isOpen={offcanvasMenu} onClick={offcanvasMenuHandler}>
                 <OffCanvasHeader onClick={offcanvasMenuHandler}>
                     <Logo/>

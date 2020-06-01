@@ -14,7 +14,6 @@ const SearchWidget = ({ widgetStyle, inputStyle }) => {
         const query = value
             .toLowerCase()
             .trim()
-            .replace(/\&+/g, '-')
 
         navigate(`/search?query=${query}`, { state: { query } })
         console.log(value)

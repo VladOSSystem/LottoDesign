@@ -8,9 +8,6 @@ import { ContactFormArea } from './form-area.stc'
 const FormArea = ({ sectionTitleCSS }) => {
     const ContantData = useStaticQuery(graphql`
         query ContactContentQuery {
-            contactJson(id: {eq: "contact-page-content"}) {
-                title
-            }
             site {
                 siteMetadata {
                   getform_url
@@ -34,19 +31,17 @@ const FormArea = ({ sectionTitleCSS }) => {
                 }
               }
         }
-    `)
-    const { contactJson: { title }, site: { siteMetadata: { getform_url } } } = ContantData;
+    `) 
+    const { site: { siteMetadata: { getform_url } } } = ContantData;
     return (
         <ContactFormArea>
             <Container>
                 <Row className="justify-content-center">
                     <Col lg={10} xl={8}>
-                        {title && (
                             <SectionTitle
                                 {...sectionTitleCSS}
                                 title={ContantData.wordpressPage.title}
                             />
-                        )}
                         <ContactForm url={getform_url} />
                     </Col>
                 </Row>

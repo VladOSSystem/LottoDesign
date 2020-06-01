@@ -8,30 +8,6 @@ import {truncateString} from '../../../utils/utilFunctions'
 const RecentPost = () => {
     const blogData = useStaticQuery(graphql `
         query RecentPostWidgetQuery {
-            allMarkdownRemark(
-                filter: {frontmatter: {format: {eq: "image"}}}, 
-                sort: {order: DESC, fields: frontmatter___date}, limit: 4) {
-                edges {
-                    node {
-                        fields {
-                            slug
-                            dateSlug
-                        }
-                        frontmatter {
-                            date(formatString: "ll")
-                            title
-                            format
-                            image {
-                                childImageSharp {
-                                    fixed(width: 78, height: 76, quality: 100) {
-                                        ...GatsbyImageSharpFixed_withWebp
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
             allWordpressPost( limit: 6) {
                 edges {
                   node {

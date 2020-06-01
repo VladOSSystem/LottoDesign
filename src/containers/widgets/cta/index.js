@@ -9,19 +9,6 @@ import {CtaWrap, CtaBG, CtaContent} from './cta.stc'
 const CTA = ({ctaHeading, ctaBtn}) => {
     const ctadataquery = useStaticQuery(graphql `
         query WidgetCtaQuery {
-            file(relativePath: {eq: "images/cta-small-image.jpg"}) {
-                childImageSharp {
-                    fluid(maxWidth: 400, maxHeight: 480, quality: 100, srcSetBreakpoints: 6) {
-                        ...GatsbyImageSharpFluid_withWebp
-                        presentationWidth
-                        presentationHeight
-                    }
-                }
-            }
-            cta: homeJson(id: {eq: "home-cta-content"}) {
-                title
-                path
-            }
             wordpressPage(slug: {eq: "contact-us"}) {
                 slug
                 title
@@ -41,14 +28,13 @@ const CTA = ({ctaHeading, ctaBtn}) => {
               }
         }
     `)
-    const bgImage = ctadataquery.file.childImageSharp.fluid
     const {cta} = ctadataquery;
     return (
         <CtaWrap>
             <CtaBG fluid={ctadataquery.wordpressPage.featured_media.localFile.childImageSharp.fixed}/>
             <CtaContent>
                 {ctadataquery.wordpressPage.title && <Heading {...ctaHeading} className="cta-heading">{parse(ctadataquery.wordpressPage.title)}</Heading>}
-                {cta.path && <Button {...ctaBtn} to={cta.path} icon={<FiChevronRight/>}>Сконтактируйтесь с нами</Button>}
+                <Button {...ctaBtn} to="contact-us" icon={<FiChevronRight/>}>Сконтактируйтесь с нами</Button>
             </CtaContent>
         </CtaWrap>
     )

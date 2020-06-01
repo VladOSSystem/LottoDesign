@@ -15,7 +15,7 @@ import {
 
 const Blog = ({content, ...restProps}) => {
     const {
-        slug, dateSlug, date, format, image, 
+        slug, date, format, image, 
         video_link, quote_text, quote_author,
         link, images,featured_media
     } = content.configObj;

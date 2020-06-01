@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Anchor from '../shared/anchor'
-import DarkLogo from '../../assets/img/logo.png'
-import WhiteLogo from '../../assets/img/white-logo.png'
 import {LogoWrap} from './logo.stc'
 import { useStaticQuery, graphql } from "gatsby"
 const Logo = props => {

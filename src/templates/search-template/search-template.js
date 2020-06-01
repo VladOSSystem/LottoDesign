@@ -10,10 +10,7 @@ import Heading from '../../components/shared/heading'
 import Blog from '../../components/blog/layout-two'
 import SearchWidget from '../../containers/widgets/search'
 import RecentPostWidget from '../../containers/widgets/recent-post'
-import InstagramWidget from '../../containers/widgets/instagram'
-import CategoryWidget from '../../containers/widgets/categories'
 import CTAWidget from '../../containers/widgets/cta'
-import SubscribeWidget from '../../containers/widgets/subscribe'
 import InstagramArea from '../../containers/global/instagram'
 import {truncateString} from '../../utils/utilFunctions'
 import { SectionWrap, PageHeader, BlogListWrap, SidebarWrap } from './search-template.stc'
@@ -78,35 +75,6 @@ const SearchTemplate = ({ data, pageContext, location, ...restProps }) => {
 
 export const query = graphql`
     query BlogBySearchQuery{
-        allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: DESC}
-        ) {
-            edges {
-                node {
-                    fields {
-                        slug
-                        dateSlug
-                        postID
-                    }
-                    frontmatter {
-                        category
-                        tags
-                        date(formatString: "LL")
-                        format
-                        title
-                        video_link
-                        quote_text
-                        quote_author
-                        link
-                        author {
-                            name
-                        }
-                    }
-                    excerpt(pruneLength: 165, format: PLAIN, truncate: true)
-                    html
-                }
-            }
-        }
         allWordpressPost{
             totalCount
             edges {

@@ -9,7 +9,7 @@ import Footer from '../../containers/layout/footer'
 import HeroArea from '../../containers/home/hero-area'
 import FeaurePostArea from '../../containers/home/feature-post-area'
 import ContactArea from '../../containers/home/contact-area'
-import Siderbar from '../../containers/global/sidebar'
+import Siderbar from '../../containers/global/sidebar' 
 import SectionTitle from '../../components/shared/section-title'
 import Blog from '../../components/blog/layout-two'
 import {truncateString} from '../../utils/utilFunctions'
@@ -62,7 +62,6 @@ const BlogList = ({ data, pageContext, location, ...restProps }) => {
                         </Row>
                     </Container>
                 </MainWrapper>
-                <ContactArea/>          
             </div>
             <Footer/>
         </Layout> 

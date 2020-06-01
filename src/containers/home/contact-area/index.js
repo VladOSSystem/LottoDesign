@@ -23,22 +23,12 @@ const ContactArea = (props) => {
                 title
                 desc
                 path
-                image {
-                    childImageSharp {
-                        fluid(maxWidth: 723, maxHeight: 640, srcSetBreakpoints: 6, quality: 100) {
-                            ...GatsbyImageSharpFluid_withWebp
-                            presentationHeight
-                            presentationWidth
-                        }
-                    }
-                }
             }
         }      
     `);
 
     const mailchimp = ContactData.mailchimp;
     const cta = ContactData.cta;
-    const ctaBg = cta.image.childImageSharp.fluid;
     const {sectionTitleStyle, textStyle, ctaHeading, ctaText, ctaBtn} = props;
     return (
         <ContactWrapper>
@@ -53,7 +43,6 @@ const ContactArea = (props) => {
                     </Col>
                     <Col lg={{size: 7, offset: 1}}>
                         <CtaWrapper>
-                            <CtaBG fluid={ctaBg}/>
                             <CtaContent>
                                 {cta.title && <Heading {...ctaHeading} className="cta-heading">{parse(cta.title)}</Heading>}
                                 {cta.desc && <Text {...ctaText}>{cta.desc}</Text>}
