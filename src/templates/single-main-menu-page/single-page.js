@@ -40,6 +40,7 @@ const SingleBlog = ({ location, ...restProps }) => {
         title, 
         content
     } = featurePageData.wordpressPage;
+    
 
     return (
         <Layout>
