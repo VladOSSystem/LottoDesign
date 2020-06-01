@@ -93,62 +93,6 @@ const SingleBlog = ({ data, pageContext, location, ...restProps }) => {
 
 export const postQuery = graphql`
     query($slug: String!){
-        markdownRemark(fields: {slug: {eq: $slug}}){
-            fields {
-                dateSlug
-                authorId
-                slug
-                postID
-            }
-            frontmatter {
-                title
-                category
-                tags
-                date(formatString: "LL")
-                format
-                video_link
-                quote_text
-                quote_author
-                link
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 839, maxHeight: 455, quality: 100, srcSetBreakpoints: 6) {
-                      ...GatsbyImageSharpFluid_withWebp
-                      presentationWidth
-                      presentationHeight
-                    }
-                  }
-                }
-                images {
-                    childImageSharp {
-                        fluid(maxWidth: 839, maxHeight: 455, quality: 100, srcSetBreakpoints: 6) {
-                            ...GatsbyImageSharpFluid_withWebp
-                            presentationWidth
-                            presentationHeight
-                        }
-                    }
-                }
-                author{
-                    name
-                    tagline
-                    image {
-                        childImageSharp {
-                            fixed(width: 180, height: 180, quality: 100) {
-                                ...GatsbyImageSharpFixed_withWebp
-                            }
-                        }
-                    }
-                    social {
-                        facebook
-                        instagram
-                        linkedin
-                        twitter
-                        youtube
-                    }
-                }
-            }
-            html
-        }
         wordpressPost(slug: { eq: $slug }) {
             title
             content

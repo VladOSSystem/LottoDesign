@@ -57,7 +57,6 @@ const SingleBlog = ({ location, ...restProps }) => {
           }
     }
 `)
-    console.log(featurePageData)
     const { slug } = featurePageData.wordpressPage;
     const {
         date, format, title, image,

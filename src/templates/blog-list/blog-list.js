@@ -71,50 +71,7 @@ const BlogList = ({ data, pageContext, location, ...restProps }) => {
  
 export const query = graphql `
     query BlogListQuery($skip: Int!, $limit: Int!){
-        allMarkdownRemark(
-        sort: {fields: frontmatter___date, order: DESC}, 
-        limit: $limit, 
-        skip: $skip) {
-            edges {
-                node {
-                    fields {
-                        slug
-                        dateSlug
-                        postID
-                    }
-                    frontmatter {
-                        category
-                        date(formatString: "LL")
-                        format
-                        tags
-                        title
-                        video_link
-                        quote_text
-                        quote_author
-                        link
-                        images {
-                            childImageSharp {
-                                fluid(maxWidth: 510, maxHeight: 350, quality: 100, srcSetBreakpoints: 6) {
-                                    ...GatsbyImageSharpFluid_withWebp
-                                    presentationWidth
-                                    presentationHeight
-                                }
-                            }
-                        }
-                        image {
-                            childImageSharp {
-                                fluid(maxWidth: 510, maxHeight: 350, quality: 100, srcSetBreakpoints: 6) {
-                                    ...GatsbyImageSharpFluid_withWebp
-                                    presentationWidth
-                                    presentationHeight
-                                }
-                            }
-                        }
-                    }
-                    excerpt(pruneLength: 165, format: PLAIN, truncate: true)
-                }
-            }
-        }
+       
         allWordpressPost(limit: $limit, skip: $skip) {
             edges {
               node {

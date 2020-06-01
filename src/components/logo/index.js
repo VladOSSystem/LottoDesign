@@ -4,12 +4,25 @@ import Anchor from '../shared/anchor'
 import DarkLogo from '../../assets/img/logo.png'
 import WhiteLogo from '../../assets/img/white-logo.png'
 import {LogoWrap} from './logo.stc'
-
+import { useStaticQuery, graphql } from "gatsby"
 const Logo = props => {
+    const HeaderData = useStaticQuery(graphql `
+        {
+            allWordpressSiteMetadata {
+                edges {
+                node {
+                    description
+                    name
+                }
+                }
+            }
+        }   
+       
+`)
     return (
         <LogoWrap {...props}>
             <Anchor path="/">
-                <h4 className="black-logo">lottojackpot.ru</h4>
+                <h4 className="black-logo">{HeaderData.allWordpressSiteMetadata.edges[0].node.name}</h4>
             </Anchor>
         </LogoWrap>
     )

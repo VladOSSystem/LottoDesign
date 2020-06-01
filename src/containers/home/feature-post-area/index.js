@@ -9,32 +9,6 @@ import {FeaturePostWrapper} from './feature-post-area.stc'
 const FeaturePostArea = (props) => {
     const featurePostData = useStaticQuery(graphql `
         query FeaturePostQuery {
-            allMarkdownRemark(
-                filter: {frontmatter: {is_featured: {eq: true}}}, 
-                sort: {order: DESC, fields: frontmatter___date}) {
-                edges {
-                    node {
-                        fields {
-                            slug
-                            dateSlug
-                        }
-                        frontmatter {
-                            title
-                            format
-                            date(formatString: "LL")
-                            image {
-                                childImageSharp {
-                                    fluid(maxWidth: 450, maxHeight: 500, quality: 100) {
-                                        ...GatsbyImageSharpFluid_withWebp
-                                        presentationWidth
-                                        presentationHeight
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
             allWordpressPost( limit: 6) {
                 edges {
                   node {

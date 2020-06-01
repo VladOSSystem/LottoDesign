@@ -30,8 +30,8 @@ export const MainMenu = ({menuData, ...props}) => {
                         <div style={styleMenu} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
                         {open === true && menu.child_items !== null ? menu.child_items.map((m) =>{
                             return (
-                                <React.Fragment>
-                                <NavLink style={{marginTop:'10px',padding:'17px 17px 17px 17px'}} path={`/page/${m.slug}`}><p style={{color:'black'}}>{m.title}</p></NavLink>
+                                <React.Fragment key={m.slug}>
+                                <NavLink key={m.slug} style={{marginTop:'10px',padding:'17px 17px 17px 17px'}} path={`/page/${m.slug}`}><p style={{color:'black'}}>{m.title}</p></NavLink>
                                 <hr style={{backgroundColor:'black', height:'1px',width:'80%',margin:'0 auto'}}/>
                                 </React.Fragment>
                                 )

@@ -72,7 +72,7 @@ const Footer = (props) => {
                                 <List {...footerMenuOne} style={{display:'flex',flexDirection:'column',justifyContent:'flex-end',flexWrap:'wrap',textAlign: 'right'}}>
                                 {FooterData.allWordpressMenusMenusItems.edges[0].node.items.map((m)=>{
                                     return (
-                                        <React.Fragment>
+                                        <React.Fragment key={m.slug}>
                                         {m.slug !== 'lottojackpot.ru' ?  (<ListItem ><Anchor path={`/page/${m.slug}`}>{m.title}</Anchor></ListItem>):( <ListItem ><Anchor path={`/`}>{m.title}</Anchor></ListItem>)}
                                         </React.Fragment>
                                     )

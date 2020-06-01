@@ -19,7 +19,6 @@ import {truncateString} from '../../utils/utilFunctions'
 import { SectionWrap, PageHeader, BlogListWrap, SidebarWrap } from './search-template.stc'
 
 const SearchTemplate = ({ data, pageContext, location, ...restProps }) => {
-    console.log(data)
     const blogs = data.allWordpressPost.edges || [];
     const { headingCSS, textCSS, blogStyle } = restProps
     const { state } = location;
@@ -28,14 +27,12 @@ const SearchTemplate = ({ data, pageContext, location, ...restProps }) => {
     filteredBlogs = query && blogs.filter(post => {
         const title = post.node.title
         const html  = post.node.excerpt
-        console.log(post)
         return (
             (title && title.toLowerCase().includes(query)) ||
             (html && html.toLowerCase().includes(query)) 
            
         )
     })
-    console.log(filteredBlogs)
     return (
         <Layout>
             <SEO title={`Search For: ${query ? query : ''}`} />
@@ -103,24 +100,6 @@ export const query = graphql`
                         link
                         author {
                             name
-                        }
-                        image {
-                            childImageSharp {
-                                fluid(maxWidth: 510, maxHeight: 350, quality: 100, srcSetBreakpoints: 6) {
-                                    ...GatsbyImageSharpFluid_withWebp
-                                    presentationWidth
-                                    presentationHeight
-                                }
-                            }
-                        }
-                        images {
-                            childImageSharp {
-                                fluid(maxWidth: 510, maxHeight: 350, quality: 100, srcSetBreakpoints: 6) {
-                                    ...GatsbyImageSharpFluid_withWebp
-                                    presentationWidth
-                                    presentationHeight
-                                }
-                            }
                         }
                     }
                     excerpt(pruneLength: 165, format: PLAIN, truncate: true)

@@ -9,48 +9,6 @@ import {truncateString} from '../../../utils/utilFunctions'
 const RecentPostArea = (props) => {
     const blogData = useStaticQuery(graphql `
         query RecentPostQuery {
-            allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, limit: 6) {
-                totalCount
-                edges {
-                    node {
-                        fields {
-                            slug
-                            dateSlug
-                            postID
-                        }
-                        frontmatter {
-                            category
-                            date(formatString: "LL")
-                            format
-                            tags
-                            title
-                            video_link
-                            quote_text
-                            quote_author
-                            link
-                            image {
-                                childImageSharp {
-                                    fluid(maxWidth: 510, maxHeight: 350, quality: 100, srcSetBreakpoints: 6) {
-                                        ...GatsbyImageSharpFluid_withWebp
-                                        presentationWidth
-                                        presentationHeight
-                                    }
-                                }
-                            }
-                            images {
-                                childImageSharp {
-                                    fluid(maxWidth: 510, maxHeight: 350, quality: 100, srcSetBreakpoints: 6) {
-                                        ...GatsbyImageSharpFluid_withWebp
-                                        presentationWidth
-                                        presentationHeight
-                                    }
-                                }
-                            }
-                        }
-                        excerpt(pruneLength: 165, format: PLAIN, truncate: true)
-                    }
-                }
-            }
             allWordpressPost(limit:8){
                 totalCount
                 edges {

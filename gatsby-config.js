@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `lottojackpot.ru`,
     titleTemplate: `Creative React Gatsby Blog Template`,
-    description: `Kick off your next, great blogging website with this Gatsby template. This template ships with the main Gatsby configuration files you might need.`,
+    description: `lotto in russia.`,
     author: `@gatsbyjs`,
     image: 'banner.jpg',
     siteUrl: "http://localhost:8000/",

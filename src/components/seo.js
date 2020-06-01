@@ -11,7 +11,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+  const { site, allWordpressSiteMetadata, wordpressPage } = useStaticQuery(
     graphql`
       query {
         site {
@@ -21,11 +21,35 @@ function SEO({ description, lang, meta, title }) {
             author
           }
         }
+        allWordpressSiteMetadata {
+          edges {
+            node {
+              description
+            }
+          }
+        }
+        wordpressPage(path: {eq: "/"}) {
+          id
+          title
+          content
+          featured_media {
+            localFile {
+              childImageSharp {
+                resolutions(width:1920, height:1080) {
+                  src
+                  width
+                  height
+                  srcSet
+                  aspectRatio
+                }
+              }
+            }
+          }
+        }
       }
     `
   )
   const metaDescription = description || site.siteMetadata.description
-
   return (
     <Helmet
       htmlAttributes={{
@@ -35,16 +59,20 @@ function SEO({ description, lang, meta, title }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
+          property: `og:image`,
+          content: wordpressPage.featured_media.localFile.childImageSharp.resolutions.src,
+        },
+        {
           name: `description`,
-          content: metaDescription,
+          content: allWordpressSiteMetadata.edges[0].node.description,
         },
         {
           property: `og:title`,
-          content: title,
+          content: site.siteMetadata.title,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: allWordpressSiteMetadata.edges[0].node.description,
         },
         {
           property: `og:type`,
@@ -56,15 +84,15 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: 'lotto',
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: site.siteMetadata.title,
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: allWordpressSiteMetadata.edges[0].node.description,
         },
       ].concat(meta)}
     />
@@ -72,7 +100,7 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `ru`,
   meta: [],
   description: ``,
 }
