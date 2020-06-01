@@ -153,7 +153,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
           baseUrl: "lottojackpot.ru",
-          protocol: "http",
+          protocol: "https",
           hostingWPCOM: false,
           useACF: true,
           verboseOutput: true
