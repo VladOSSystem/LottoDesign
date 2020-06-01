@@ -72,7 +72,7 @@ module.exports = {
           },
           {
             family: `Dancing Script`,
-            subsets: [`latin`,`cyrillic`],
+            subsets: [`latin`,`cyrillic`], 
             variants: [`400`, `500`, `600`, `700`]
           }
         ],
