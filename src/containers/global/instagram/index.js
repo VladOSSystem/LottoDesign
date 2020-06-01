@@ -16,10 +16,12 @@ const Instagram = ({ headingCSS, textCSS }) => {
               preview
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 245, maxHeight: 245, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                    presentationWidth
+                  fluid(maxWidth: 245, maxHeight: 245) {
+                    src
+                    srcSet
+                    aspectRatio
                     presentationHeight
+                    presentationWidth
                   }
                 }
               }

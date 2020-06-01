@@ -15,9 +15,11 @@ const Instagram = ({ widgetStyle }) => {
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 300, maxHeight: 300, quality: 100, srcSetBreakpoints: 6) {
-                    ...GatsbyImageSharpFluid_withWebp
-                    presentationWidth
+                    src
+                    srcSet
+                    aspectRatio
                     presentationHeight
+                    presentationWidth
                   }
                 }
               }
