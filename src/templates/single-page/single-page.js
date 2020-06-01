@@ -14,7 +14,7 @@ import {
     SinglePostWrap,
     SidebarWrap
 } from './single-page.stc'
-import InstagramWrap from '../../containers/global/instagram'
+// import InstagramWrap from '../../containers/global/instagram'
 
 const SingleBlog = ({ data, pageContext, location, ...restProps }) => {
     const {
@@ -49,7 +49,6 @@ const SingleBlog = ({ data, pageContext, location, ...restProps }) => {
                         </Row>
                     </Container>
                 </SinglePostArea>
-                <InstagramWrap/>
             </div>
             <Footer />
         </Layout>

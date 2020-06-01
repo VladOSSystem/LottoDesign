@@ -11,7 +11,7 @@ import SearchWidget from '../../containers/widgets/search'
 import RecentPostWidget from '../../containers/widgets/recent-post'
 import CTAWidget from '../../containers/widgets/cta'
 import Comment from '../../containers/global/comment'
-import InstagramWrap from '../../containers/global/instagram'
+// import InstagramWrap from '../../containers/global/instagram'
 import {
     SinglePostArea,
     SinglePostWrap,
@@ -55,7 +55,6 @@ const SingleBlog = ({ data, pageContext, location, ...restProps }) => {
                         </Row>
                     </Container>
                 </SinglePostArea>
-                <InstagramWrap/>
             </div>
             <Footer />
         </Layout>

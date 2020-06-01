@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchWidget from '../../widgets/search'
 import RecentPostWidget from '../../widgets/recent-post'
-import InstagramWidget from '../../widgets/instagram'
+// import InstagramWidget from '../../widgets/instagram'
 import {SidebarWrap} from './sidebar.stc'
 
 const Sidebar = () => {
@@ -9,7 +9,6 @@ const Sidebar = () => {
         <SidebarWrap>
             <SearchWidget/>
             <RecentPostWidget/>
-            <InstagramWidget/>
         </SidebarWrap>
     )
 }

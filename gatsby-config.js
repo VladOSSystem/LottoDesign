@@ -78,16 +78,16 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        // type: `hashtag`,
-        // hashtag: `naturesbeauty`,
-        username: `lotto.pl`,
-        // access_token: "EAAJfJNguJz4BAI3u9hxFCVJUwVgT39AzmO7nyRAPPEhHEiyyElx7cYSxbv5hHWMyopFM00R0wh7wfoghe7vfePBteFp9pKKkDJKdAPl0b1fKTkWu2s9nYhiYrxHnq28n3mZC4HUSYwxJeaurinARaOqxOzaVfwlBJZBEMApAZDZD",
-        // instagram_id: "rainbowit5"
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   options: {
+    //     // type: `hashtag`,
+    //     // hashtag: `naturesbeauty`,
+    //     username: `lotto.pl`,
+    //     // access_token: "EAAJfJNguJz4BAI3u9hxFCVJUwVgT39AzmO7nyRAPPEhHEiyyElx7cYSxbv5hHWMyopFM00R0wh7wfoghe7vfePBteFp9pKKkDJKdAPl0b1fKTkWu2s9nYhiYrxHnq28n3mZC4HUSYwxJeaurinARaOqxOzaVfwlBJZBEMApAZDZD",
+    //     // instagram_id: "rainbowit5"
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

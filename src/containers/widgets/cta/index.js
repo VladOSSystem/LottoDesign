@@ -34,7 +34,7 @@ const CTA = ({ctaHeading, ctaBtn}) => {
             <CtaBG fluid={ctadataquery.wordpressPage.featured_media.localFile.childImageSharp.fixed}/>
             <CtaContent>
                 {ctadataquery.wordpressPage.title && <Heading {...ctaHeading} className="cta-heading">{parse(ctadataquery.wordpressPage.title)}</Heading>}
-                <Button {...ctaBtn} to="contact-us" icon={<FiChevronRight/>}>Сконтактируйтесь с нами</Button>
+                <Button {...ctaBtn} to="/contact-us" icon={<FiChevronRight/>}>Сконтактируйтесь с нами</Button>
             </CtaContent>
         </CtaWrap>
     )

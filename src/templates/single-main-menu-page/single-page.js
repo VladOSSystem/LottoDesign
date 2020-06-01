@@ -11,7 +11,7 @@ import {
     SinglePostWrap,
     SidebarWrap
 } from './single-page.stc'
-import InstagramWrap from '../../containers/global/instagram'
+// import InstagramWrap from '../../containers/global/instagram'
 
 const SingleBlog = ({ location, ...restProps }) => {
     const featurePageData = useStaticQuery(graphql `
@@ -66,7 +66,6 @@ const SingleBlog = ({ location, ...restProps }) => {
                         </Row>
                     </Container>
                 </SinglePostArea>
-                <InstagramWrap/>
             </div>
         </Layout>
     )

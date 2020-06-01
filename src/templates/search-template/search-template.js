@@ -11,7 +11,7 @@ import Blog from '../../components/blog/layout-two'
 import SearchWidget from '../../containers/widgets/search'
 import RecentPostWidget from '../../containers/widgets/recent-post'
 import CTAWidget from '../../containers/widgets/cta'
-import InstagramArea from '../../containers/global/instagram'
+// import InstagramArea from '../../containers/global/instagram'
 import {truncateString} from '../../utils/utilFunctions'
 import { SectionWrap, PageHeader, BlogListWrap, SidebarWrap } from './search-template.stc'
 
@@ -66,7 +66,6 @@ const SearchTemplate = ({ data, pageContext, location, ...restProps }) => {
                         </Row>
                     </Container>
                 </SectionWrap>
-                <InstagramArea />
             </div>
             <Footer />
         </Layout>
