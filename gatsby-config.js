@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: `Creative React Gatsby Blog Template`,
     description: `lotto in russia.`,
     author: `@gatsbyjs`,
-    image: 'banner.jpg',
+    image: 'banner.jpg', 
     siteUrl: "http://localhost:8000/",
     disqus_shortname: "thern",
     mailchimp_endpoint: "https://gmail.us19.list-manage.com/subscribe/post?u=9fac302a213ab56195e9125e7&amp;id=a30904c5f3",
