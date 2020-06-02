@@ -6,9 +6,8 @@ module.exports = {
     author: `@gatsbyjs`,
     image: 'banner.jpg',
     siteUrl: "http://localhost:8000/",
-    mailchimp_endpoint: "https://gmail.us19.list-manage.com/subscribe/post?u=9fac302a213ab56195e9125e7&amp;id=a30904c5f3",
     disqus_shortname: "thern",
-    getform_url: "https://getform.io/f/e592569c-e42d-4cee-9614-47e5643b9592",
+    getform_url: "https://getform.io/f/363ef6ac-32a8-4bb5-bc69-4e34325a626b",
     contact: {
       social: {
         facebook: 'https://facebook.com',
